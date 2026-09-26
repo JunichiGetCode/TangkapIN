@@ -1,6 +1,6 @@
 # Dokumen Persyaratan Produk (PRD)
 **Nama Proyek:** TangkapIN (Sistem Analitik & Marketplace Hasil Laut)
-**Kategori:** Proyek Capstone S1 Sistem Informasi
+**Kategori:** Proyek Proyek Perangkat Lunak S1 Sistem Informasi
 **Versi:** 5.0 (Penyederhanaan Arsitektur Native VILT & Penghapusan Tunnels)
 
 ---
@@ -40,7 +40,7 @@ Pengembangan dibagi menjadi lapisan arsitektur modular yang memisahkan logika bi
 *Fokus: Manajemen penjualan, pengawasan integritas sistem, kendali platform, dan evaluasi ekonomi.*
 *   **Manajemen Etalase (Marketplace):** Admin memverifikasi data panen dari nelayan, mengatur harga jual, dan mempublikasikan stok ikan ke etalase publik.
 *   **Kontrol Aktivitas Web & Pesanan:** Akses otoritas penuh untuk memantau transaksi dan mengelola alur produk.
-*   **Rekapitulasi Evaluasi (Laporan Capstone):** Laporan komparatif antara total volume panen vs volume penjualan.
+*   **Rekapitulasi Evaluasi (Laporan Proyek Perangkat Lunak):** Laporan komparatif antara total volume panen vs volume penjualan.
 
 ## 5. Pedoman Tata Letak & Antarmuka (*UI/UX Guidelines*)
 *   **Sistem Navigasi Utama (Navbar):** Seluruh elemen dalam navbar **wajib** memiliki dimensi seragam.
@@ -57,7 +57,7 @@ Pengembangan dibagi menjadi lapisan arsitektur modular yang memisahkan logika bi
 | payments | id, order_id, method, status, payload | PK, FK, String, Enum, JSON | Rekam jejak *callback* Midtrans |
 
 ## 7. Jadwal Eksekusi 5 Sprint (*Sprint Backlog*)
-### Sprint 1: Penyusunan Proposal Capstone
+### Sprint 1: Penyusunan Proposal Proyek Perangkat Lunak
 *   Melengkapi dokumen proposal Bab 1 hingga Bab 4.
 
 ### Sprint 2: Infrastruktur Dasar, Basis Data & UI Inti
