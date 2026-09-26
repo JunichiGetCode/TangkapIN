@@ -1,7 +1,7 @@
 # Dokumen Persyaratan Produk (PRD)
 **Nama Proyek:** TangkapIN (Sistem Analitik & Marketplace Hasil Laut)
 **Kategori:** Proyek Proyek Perangkat Lunak S1 Sistem Informasi
-**Versi:** 5.0 (Penyederhanaan Arsitektur Native VILT & Penghapusan Tunnels)
+**Versi:** 5.0 (Penyederhanaan Arsitektur Native VILT)
 
 ---
 
