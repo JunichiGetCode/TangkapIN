@@ -47,7 +47,7 @@ Sistem ini dikembangkan menggunakan metodologi **Agile (Scrum)**.
 | order_items | id, order_id, product_id, qty, subtotal | PK, FK, FK, Float, Decimal | |
 | payments | id, order_id, method, status, payload | PK, FK, String, Enum, JSON | Rekam jejak *webhook* Midtrans |
 
-## 6. Jadwal Eksekusi 5 Sprint
+## 6. Jadwal Eksekusi 6 Sprint
 *   **Sprint 1:** Penyusunan Proposal Proyek Perangkat Lunak.
 *   **Sprint 2:** Infrastruktur Dasar, Basis Data & UI Inti.
 *   **Sprint 3:** Manajemen Tangkapan & Dashboard Analitik.
