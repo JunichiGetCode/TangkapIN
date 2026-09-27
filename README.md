@@ -1,85 +1,87 @@
-# Dokumen Persyaratan Produk (PRD)
-**Nama Proyek:** TangkapIN (Sistem Analitik & Marketplace Hasil Laut)
-**Kategori:** Proyek Proyek Perangkat Lunak S1 Sistem Informasi
-**Versi:** 5.0 (Penyederhanaan Arsitektur Native VILT)
+# Draf Isian Proposal PPL - TangkapIN (Versi Final)
+*Gunakan teks dan tabel di bawah ini untuk mengisi bagian-bagian yang kosong (<...>) di dalam file Word Anda.*
 
 ---
 
-## 1. Ringkasan Eksekutif & Latar Belakang Masalah
-Industri perikanan skala kecil sering kali menghadapi dua masalah utama: rantai pasok yang panjang yang merugikan nelayan, dan kurangnya wawasan data yang memicu praktik penangkapan ikan berlebih (*overfishing*). 
+## 1. Usulan Solusi
+**Jelaskan solusi permasalahan yang ada di latar belakang dengan produk web atau Sistem Informasi yang diusulkan:**
+Solusi yang diusulkan adalah **TangkapIN**, sebuah sistem informasi *Single Page Application* (SPA) yang mengintegrasikan kapabilitas dasbor analitik data dengan fungsionalitas *e-commerce* (*marketplace*). Sistem ini menengahi dua masalah sekaligus: meminimalisir praktik penangkapan ikan berlebih (*overfishing*) dengan memberikan wawasan (*insight*) tren kelimpahan ikan kepada nelayan, serta mencegah kerugian finansial akibat ikan membusuk melalui ketersediaan etalase publik yang dikelola secara terpusat oleh Admin.
 
-**TangkapIN** hadir sebagai solusi sistem informasi *full-stack* inovatif yang memadukan kapabilitas **analitik data terpusat** dengan **fungsionalitas e-niaga (marketplace)**. Objektif utama dari sistem ini adalah memutus siklus *overfishing* dengan memberikan wawasan (*insights*) berbasis data kepada nelayan mengenai tren tangkapan laut. Di saat yang sama, sistem ini secara langsung menekan angka kerugian finansial akibat ikan tangkapan yang membusuk atau tidak terjual, melalui fitur marketplace terintegrasi B2B/B2C.
+**Jelaskan keterkaitan permasalahan dengan solusi yang diusulkan:**
+Permasalahan nelayan yang menangkap ikan secara buta (berdasarkan insting) diselesaikan melalui fitur *Dashboard Analitik* yang menyajikan grafik tren data yang diolah secara *native* oleh sistem. Sementara itu, masalah distribusi ikan yang terputus diselesaikan melalui fitur *Marketplace* yang memfasilitasi penjualan langsung ke pelanggan dengan sistem pembayaran otomatis (Midtrans). Hal ini secara langsung mendukung **SDG 14 (Life Below Water)** dan peningkatan ekonomi pesisir.
 
-## 2. Metodologi Pengembangan
-Sistem ini dikembangkan menggunakan metodologi **Agile (Scrum)**.
+---
 
-## 3. Spesifikasi Arsitektur & Teknologi (*Tech Stack*)
-Pengembangan dibagi menjadi lapisan arsitektur modular yang memisahkan logika bisnis dan antarmuka.
-*   **Lingkungan Lokal:** Visual Studio Code (IDE), Laragon / XAMPP (Local Web Server).
-*   **Kerangka Kerja (VILT Stack):** 
-    *   **Vue.js & Tailwind CSS:** Untuk antarmuka pengguna (Frontend) yang reaktif (*Single Page Application*) dan *styling* yang modern.
-    *   **Inertia.js:** Sebagai penghubung *seamless* antara Frontend dan Backend tanpa perlu membangun REST API secara terpisah.
-    *   **Laravel (PHP):** Sebagai mesin utama Backend untuk *routing*, logika agregasi data cerdas, dan manajemen basis data menggunakan Eloquent ORM.
-*   **Visualisasi Data (Frontend):** Menggunakan *library* JavaScript modern seperti **Chart.js** atau **ApexCharts** untuk merender grafik interaktif di Dasbor.
-*   **Basis Data (RDBMS):** PostgreSQL.
-*   **Integrasi Pihak Ketiga (Fintech):** Midtrans Payment Gateway (Mode *Sandbox* untuk simulasi transaksi).
+## 2. Deskripsi Produk
+TangkapIN adalah platform web modern yang memisahkan beban kerja antara nelayan (fokus ke laut) dan tim manajemen (Admin yang fokus jualan). 
+**Fungsi Utama:**
+1. **Pencatatan & Analitik Terpusat:** Admin mencatat hasil panen harian nelayan yang kemudian dikomputasi secara efisien menggunakan logika agregasi *database* (Eloquent ORM) untuk menampilkan grafik tren kepada nelayan.
+2. **Manajemen Etalase Terpusat:** Admin dapat mengonversi data panen tersebut menjadi stok produk yang siap dijual di etalase publik.
+3. **Transaksi Cerdas:** Pembeli (Customer) dapat berbelanja hasil laut secara *real-time* dengan metode pembayaran otomatis yang ditangani oleh Midtrans Payment Gateway.
 
-## 4. Kebutuhan Fungsional (*User Stories*)
-### 4.1 Peran: Nelayan
-*Fokus: Suplai data hasil laut dan analisis panen.*
-*   **Pencatatan Data Panen:** Sistem menerima input data panen (spesies, berat, tanggal) dan merekamnya dalam catch_records.
-*   **Dashboard Analitik & Pendapatan:** Sistem menampilkan dasbor cerdas berisi grafik tren tangkapan dengan filter dinamis. *(Catatan: Nelayan tidak berinteraksi dengan proses penjualan secara langsung).*
+**Keunggulan Produk:** 
+Penerapan arsitektur VILT Stack (Vue.js, Inertia, Laravel, Tailwind) dipadukan dengan *database* PostgreSQL. Hal ini menjamin aplikasi berjalan sangat cepat, tanpa *loading* ulang halaman (responsif layaknya aplikasi *mobile*), dan mampu memproses agregasi analitik data dalam jumlah besar.
 
-### 4.2 Peran: Customer (Pembeli B2B/B2C)
-*Fokus: Penjelajahan katalog, transaksi, dan dukungan ekonomi sirkular.*
-*   **Katalog & Keranjang Belanja:** Eksplorasi ketersediaan stok hasil laut *real-time*, fungsi pencarian canggih, dan penambahan item ke keranjang.
-*   **Transaksi & Pembayaran:** Integrasi mulus dengan *API Midtrans*.
-*   **Pembaruan Pesanan Otomatis:** Sistem mendengarkan *Signature Key* dari Webhook Midtrans.
+---
 
-### 4.3 Peran: Admin (Tim TangkapIN)
-*Fokus: Manajemen penjualan, pengawasan integritas sistem, kendali platform, dan evaluasi ekonomi.*
-*   **Manajemen Etalase (Marketplace):** Admin memverifikasi data panen dari nelayan, mengatur harga jual, dan mempublikasikan stok ikan ke etalase publik.
-*   **Kontrol Aktivitas Web & Pesanan:** Akses otoritas penuh untuk memantau transaksi dan mengelola alur produk.
-*   **Rekapitulasi Evaluasi (Laporan Proyek Perangkat Lunak):** Laporan komparatif antara total volume panen vs volume penjualan.
+## 3. Proses Bisnis
+**Proses Bisnis Existing (Sebelum ada sistem):**
+1. Nelayan melaut dan menangkap ikan berdasarkan perkiraan atau musim semata.
+2. Setelah berlabuh, nelayan hanya menjualnya ke tengkulak lokal dengan harga sepihak.
+3. Sisa ikan yang tidak dibeli tengkulak rentan membusuk karena tidak adanya akses ke pasar yang lebih luas.
+4. Pembeli akhir harus melewati rantai pasok yang sangat panjang untuk mendapatkan ikan segar.
 
-## 5. Pedoman Tata Letak & Antarmuka (*UI/UX Guidelines*)
-*   **Sistem Navigasi Utama (Navbar):** Seluruh elemen dalam navbar **wajib** memiliki dimensi seragam.
-*   **Elemen Profil Pengguna:** Tombol aksi pada area *header* khusus profil dirancang secara minimalis **hanya menggunakan teks** (tanpa ikon dekoratif).
+**Proses Bisnis Usulan (Setelah ada TangkapIN):**
+1. Admin TangkapIN memasukkan data panen harian (spesies, berat) dari nelayan ke dalam sistem.
+2. Sistem mengolah data tersebut menjadi grafik wawasan yang dapat dipantau oleh Nelayan melalui dasbor mereka.
+3. Admin menyeleksi hasil tangkapan, mengatur harga jual, dan mempublikasikannya ke katalog *Marketplace*.
+4. Pembeli (Customer) membuka web TangkapIN, memilih ikan, memasukkan ke keranjang, dan melakukan *checkout*.
+5. Pembeli membayar pesanan melalui Midtrans Gateway, status pesanan otomatis lunas, dan sistem memberikan instruksi kepada Admin untuk menyiapkan pengiriman logistik.
 
-## 6. Skema Basis Data Lanjutan (*Data Dictionary*)
-| Tabel | Kolom | Tipe Data | Relasi / Keterangan |
-| :--- | :--- | :--- | :--- |
-| users | id, name, email, password, role | PK, String, String, Hash, Enum | role: 'nelayan', 'customer', 'admin' |
-| catch_records | id, user_id, species, weight_kg, date | PK, FK, String, Float, Date | FK ke users.id |
-| products | id, catch_id, price_kg, stock, status | PK, FK, Decimal, Float, Boolean | FK ke catch_records.id |
-| orders | id, buyer_id, total, status, snap_token | PK, FK, Decimal, Enum, String | Token akses Midtrans |
-| order_items | id, order_id, product_id, qty, subtotal | PK, FK, FK, Float, Decimal | Relasi Many-to-Many pesanan |
-| payments | id, order_id, method, status, payload | PK, FK, String, Enum, JSON | Rekam jejak *callback* Midtrans |
+---
 
-## 7. Jadwal Eksekusi 5 Sprint (*Sprint Backlog*)
-### Sprint 1: Penyusunan Proposal Proyek Perangkat Lunak
-*   Melengkapi dokumen proposal Bab 1 hingga Bab 4.
+## 4. Kebutuhan Sistem
+### Kebutuhan Fungsional
+| ID | Kebutuhan Fungsional | Deskripsi |
+| :--- | :--- | :--- |
+| FR-01 | Manajemen Data Panen | Admin dapat menambah, melihat, mengubah, dan menghapus data hasil tangkapan nelayan (spesies, berat, tanggal, nama nelayan penginput) sebagai bahan dasar analitik. |
+| FR-02 | Manajemen Etalase & Katalog | Admin menyeleksi hasil tangkapan yang melimpah, menentukan harga jual, dan mempublikasikannya sebagai produk ke etalase publik. |
+| FR-03 | Manajemen Transaksi & Logistik | Admin memantau pesanan yang masuk dari Customer, memperbarui status pengiriman, dan menugaskan alur logistik setelah sistem menerima webhook Midtrans bahwa pembayaran lunas. |
+| FR-04 | Dashboard Evaluasi Ekonomi | Admin memantau grafik rekapitulasi yang membandingkan total volume panen dengan volume penjualan guna menilai dampak aplikasi terhadap ekonomi nelayan. |
+| FR-05 | Kelola Master Data & Pengguna | Admin mengontrol referensi kategori spesies ikan serta melakukan moderasi terhadap seluruh pengguna (menambah/memblokir Nelayan dan Customer). |
+| FR-06 | Dashboard Analitik Nelayan | Nelayan dapat melihat visualisasi tren kelimpahan hasil tangkapan (filter harian, mingguan, bulanan, tahunan) beserta rincian pendapatan dari tangkapan yang telah berhasil dijual oleh Admin. |
+| FR-07 | Portal E-Commerce Customer | Customer dapat menelusuri katalog real-time, menambahkan produk ke keranjang, melakukan checkout via Snap Window Midtrans Sandbox, dan memantau status pesanannya secara mandiri. |
 
-### Sprint 2: Infrastruktur Dasar, Basis Data & UI Inti
-*   Instalasi & Konfigurasi *Environment* VILT Stack menggunakan Laravel Breeze di Laragon.
-*   Penyusunan file *Migration*, *Model*, dan *Controller* dasar.
-*   Penetapan *Role-Based Access Control (RBAC)* melalui fitur *Middleware* Laravel.
-*   Implementasi kerangka antarmuka utama berbasis Tailwind & Vue.
+### Karakteristik Pengguna
+| Pengguna | Tanggung Jawab | Hak Akses / Tingkat Keahlian |
+| :--- | :--- | :--- |
+| **Admin** | Mengelola seluruh data panen, etalase & harga, transaksi & logistik, evaluasi dampak ekonomi, serta master data dan moderasi pengguna. | Akses penuh ke seluruh modul sistem (full CRUD). Membutuhkan pemahaman dasar tentang operasional platform dan interpretasi data analitik. |
+| **Nelayan** | Memantau dashboard analitik tren tangkapan dan rekap pendapatan hasil penjualan yang dikelola Admin. | Akses baca (read-only) hanya pada dashboard pribadi. Tidak memerlukan keahlian teknis khusus — cukup familiar dengan penggunaan aplikasi web/mobile dasar. |
+| **Customer** | Menelusuri katalog, melakukan pemesanan, checkout, dan memantau status transaksi secara mandiri. | Akses baca & tulis terbatas pada modul e-commerce (katalog, keranjang, checkout, riwayat pesanan). Pengguna umum, tidak memerlukan keahlian teknis. |
 
-### Sprint 3: Manajemen Tangkapan & Dashboard Analitik
-*   Pengembangan formulir input dan manajemen rekaman tangkapan ikan untuk panel Nelayan.
-*   Pembuatan logika query agregasi data panen menggunakan Laravel Eloquent ORM.
-*   Integrasi *library* grafik (Chart.js/ApexCharts) ke Dashboard Nelayan untuk visualisasi tren.
-*   Pembuatan kalkulator otomatis untuk proyeksi pendapatan nelayan di halaman dasbor.
+### Kebutuhan Non Fungsional
+| ID | Kebutuhan Non Fungsional | Deskripsi |
+| :--- | :--- | :--- |
+| NFR-01 | UI Consistency | Seluruh navigasi/navbar dan tombol profil pengguna wajib seragam secara ukuran dan tipografi (tanpa ikon dekoratif). |
+| NFR-02 | Performance | Waktu muat (*load time*) untuk perpindahan halaman (*routing*) dan rendering grafik agregasi data tidak boleh melebihi 3 detik. |
+| NFR-03 | Security | Jalur komunikasi antara web dan API Midtrans wajib dilindungi dan diverifikasi menggunakan parameter *Signature Key* untuk mencegah manipulasi pembayaran. |
 
-### Sprint 4: Etalase Marketplace & Manajemen E-Commerce
-*   Pengembangan fitur Manajemen Produk bagi Admin untuk mengkonversi data tangkapan menjadi produk siap jual.
-*   Desain dan implementasi antarmuka etalase produk publik untuk *Customer*.
-*   Pembuatan logika *Keranjang Belanja* (Cart) dan manajemen sesi pesanan.
-*   Penyusunan *Dashboard Panel Admin* untuk memonitor ketersediaan produk, mengatur harga, dan pemesanan.
+### Kebutuhan Teknis
+| ID | Kebutuhan Teknis | Deskripsi |
+| :--- | :--- | :--- |
+| TR-01 | Framework Frontend & Backend | Menggunakan VILT Stack (Vue.js, Inertia.js, Laravel, Tailwind CSS) untuk membangun *Single Page Application* (SPA). |
+| TR-02 | Basis Data (RDBMS) | Menggunakan PostgreSQL (terkonfigurasi pada port 5432) untuk menunjang keamanan dan keandalan query agregasi data berskala besar. |
+| TR-03 | API / Payment Gateway | Membutuhkan integrasi API dari Midtrans (*Sandbox Mode*) untuk layanan dan simulasi transaksi pembayaran. |
 
-### Sprint 5: Gateway Pembayaran (Midtrans), Laporan, & Pengujian
-*   Koneksi sistem *Checkout* dengan kredensial API Midtrans (*Sandbox Mode*).
-*   Pembuatan rute *Webhook/Callback* yang aman untuk perubahan status pembayaran.
-*   Pengembangan fitur "Laporan Rekapitulasi Evaluasi Ekonomi" pada Panel Admin.
-*   Pengujian fungsionalitas keseluruhan aplikasi (*End-to-End Testing*).
+---
+
+## 5. Metode Pengembangan
+Pengembangan TangkapIN menggunakan metodologi **Agile (Scrum)**.
+
+## 6. Jadwal Pengembangan
+*(Berdasarkan tiket pada proyek Jira, waktu pengembangan dibagi menjadi 5 Sprint utama)*:
+1. **Sprint 1:** Penyusunan Proposal Proyek Perangkat Lunak.
+2. **Sprint 2:** Infrastruktur Dasar, Basis Data & UI Inti.
+3. **Sprint 3:** Manajemen Tangkapan & Dashboard Analitik.
+4. **Sprint 4:** Etalase Marketplace & Manajemen E-Commerce.
+5. **Sprint 5:** Gateway Pembayaran (Midtrans), Laporan, & Pengujian.
