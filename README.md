@@ -21,7 +21,7 @@ Pengembangan dibagi menjadi lapisan arsitektur modular yang memisahkan logika bi
     *   **Inertia.js:** Sebagai penghubung *seamless* antara Frontend dan Backend tanpa perlu membangun REST API secara terpisah.
     *   **Laravel (PHP):** Sebagai mesin utama Backend untuk *routing*, logika agregasi data cerdas, dan manajemen basis data menggunakan Eloquent ORM.
 *   **Visualisasi Data (Frontend):** Menggunakan *library* JavaScript modern seperti **Chart.js** atau **ApexCharts** untuk merender grafik interaktif di Dasbor.
-*   **Basis Data (RDBMS):** MySQL.
+*   **Basis Data (RDBMS):** PostgreSQL.
 *   **Integrasi Pihak Ketiga (Fintech):** Midtrans Payment Gateway (Mode *Sandbox* untuk simulasi transaksi).
 
 ## 4. Kebutuhan Fungsional (*User Stories*)
